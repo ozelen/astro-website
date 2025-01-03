@@ -71,6 +71,24 @@
 
 	/* Transitions */
 	--theme-transition: 0.2s ease-in-out;
+
+	/* Base background definitions */
+	--_placeholder-bg: linear-gradient(transparent, transparent);
+	
+	/* Main backgrounds - Mobile first (800w) */
+	--bg-image-main: url('/assets/backgrounds/bg-main-light-800w.jpg');
+	--bg-image-subtle-1: var(--_placeholder-bg);
+	--bg-image-subtle-2: var(--_placeholder-bg);
+	--bg-image-footer: var(--_placeholder-bg);
+	
+	/* Blend modes */
+	--bg-blend-mode: darken;
+	
+	/* Sizing */
+	--bg-image-aspect-ratio: 2.25;
+	--bg-scale: 1.68;
+	--bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
+	--bg-gradient-size: calc(var(--bg-scale) * 100%);
 }
 
 :root.theme-dark {
@@ -113,6 +131,48 @@
 		0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
 	--shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
 		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
+
+	/* Dark theme overrides - Mobile (800w) */
+	--bg-image-main: url('/assets/backgrounds/bg-main-dark-800w.jpg');
+	--bg-blend-mode: lighten;
+}
+
+/* Lazy loaded backgrounds - Light theme (800w) */
+:root.loaded {
+	--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-800w.jpg');
+	--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-800w.jpg');
+	--bg-image-footer: url('/assets/backgrounds/bg-footer-light-800w.jpg');
+}
+
+/* Lazy loaded backgrounds - Dark theme (800w) */
+:root.loaded.theme-dark {
+	--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-800w.jpg');
+	--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-800w.jpg');
+	--bg-image-footer: url('/assets/backgrounds/bg-footer-dark-800w.jpg');
+}
+
+/* Desktop overrides (1440w) */
+@media (min-width: 50em) {
+	:root {
+		--bg-scale: 1;
+		--bg-image-main: url('/assets/backgrounds/bg-main-light-1440w.jpg');
+	}
+	
+	:root.theme-dark {
+		--bg-image-main: url('/assets/backgrounds/bg-main-dark-1440w.jpg');
+	}
+	
+	:root.loaded {
+		--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-1440w.jpg');
+		--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-1440w.jpg');
+		--bg-image-footer: url('/assets/backgrounds/bg-footer-light-1440w.jpg');
+	}
+	
+	:root.loaded.theme-dark {
+		--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-1440w.jpg');
+		--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-1440w.jpg');
+		--bg-image-footer: url('/assets/backgrounds/bg-footer-dark-1440w.jpg');
+	}
 }
 
 html,
@@ -252,4 +312,39 @@ h5 {
 	.lg\:gap-48 {
 		gap: 12rem;
 	}
+}
+
+/* Page-specific backgrounds - Light theme */
+.bg-home {
+    --bg-image-main: url('/assets/backgrounds/bg-home-light.jpg') !important;
+}
+
+.bg-about {
+    --bg-image-main: url('/assets/backgrounds/bg-about-light.jpg') !important;
+}
+
+.bg-projects {
+    --bg-image-main: url('/assets/backgrounds/bg-projects-light.jpg') !important;
+}
+
+/* Page-specific backgrounds - Dark theme */
+:root.theme-dark .bg-home {
+    --bg-image-main: url('/assets/backgrounds/bg-home-dark.jpg') !important;
+}
+
+:root.theme-dark .bg-about {
+    --bg-image-main: url('/assets/backgrounds/bg-about-dark.jpg') !important;
+}
+
+:root.theme-dark .bg-projects {
+    --bg-image-main: url('/assets/backgrounds/bg-projects-dark.jpg') !important;
+}
+
+/* You can also add different blend modes per page/theme combination */
+:root.theme-dark .bg-home {
+    --bg-blend-mode: lighten !important;
+}
+
+.bg-home {
+    --bg-blend-mode: darken !important;
 }
