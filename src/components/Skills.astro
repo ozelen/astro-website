@@ -3,60 +3,66 @@ import Icon from './Icon.astro';
 ---
 
 <section class="box skills">
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="architecture" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Solutions Architecture</h2>
-		<p>Designing and implementing scalable, efficient systems that solve complex business challenges through innovative technical solutions.</p>
-	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="robot" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>AI Automation</h2>
-		<p>Leveraging cutting-edge AI technologies to automate processes, enhance productivity, and create intelligent business solutions.</p>
-	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="code" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Software Development</h2>
-		<p>Building robust, user-centric applications with modern technologies and best practices in software engineering.</p>
-	</div>
+  <div class="stack gap-2 lg:gap-4">
+    <Icon icon="architecture" color="var(--accent-regular)" size="2.5rem" gradient />
+    <h2>Solutions Architecture</h2>
+    <p>Designing and implementing scalable, efficient systems that solve complex business challenges through innovative technical solutions.</p>
+  </div>
+  <div class="stack gap-2 lg:gap-4">
+    <Icon icon="robot" color="var(--accent-regular)" size="2.5rem" gradient />
+    <h2>AI Agents & Automation</h2>
+    <p>Leveraging cutting-edge AI technologies to automate processes, enhance productivity, and create intelligent business solutions.</p>
+  </div>
+  <div class="stack gap-2 lg:gap-4">
+    <Icon icon="code" color="var(--accent-regular)" size="2.5rem" gradient />
+    <h2>Software Development</h2>
+    <p>Building robust, user-centric applications with modern technologies and best practices in software engineering.</p>
+  </div>
 </section>
 
 <style>
-	.box {
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
-		padding: 1.5rem;
-		background-color: var(--gray-999_40);
-		box-shadow: var(--shadow-sm);
-	}
+  .box {
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background-color: var(--gray-999_40);
+    box-shadow: var(--shadow-sm);
+  }
 
-	.skills {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
-	}
+  .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+    border-radius: 0.75rem;
+  }
 
-	.skills h2 {
-		font-size: var(--text-lg);
-	}
+  :global(.theme-dark) .skills {
+    background: rgba(0, 0, 0, 0.5);
+  }
 
-	.skills p {
-		color: var(--gray-400);
-	}
+  .skills h2 {
+    font-size: var(--text-lg);
+  }
 
-	@media (min-width: 50em) {
-		.box {
-			border-radius: 1.5rem;
-			padding: 2.5rem;
-		}
+  .skills p {
+    color: var(--gray-400);
+  }
 
-		.skills {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 5rem;
-		}
+  @media (min-width: 50em) {
+    .box {
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+    }
 
-		.skills h2 {
-			font-size: var(--text-2xl);
-		}
-	}
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5rem;
+    }
+
+    .skills h2 {
+      font-size: var(--text-2xl);
+    }
+  }
 </style>
