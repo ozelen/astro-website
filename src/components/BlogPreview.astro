@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import { formatDate } from '../utils/date';
 
 interface Props {
@@ -7,11 +8,24 @@ interface Props {
 }
 
 const { data, id } = Astro.props.project;
+
+// Calculate reading time based on full content
+const WORDS_PER_MINUTE = 225;
+const content = await Astro.props.project.body;
+const wordCount = content.split(/\s+/).length;
+const readingTime = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
 ---
 
 <a class="post-preview" href={`/blog/${id}`}>
   <div class="image">
-    <img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
+    <Image 
+      src={data.img} 
+      alt={data.img_alt || ''} 
+      width={240}
+      height={160}
+      quality={80}
+      format="webp"
+    />
   </div>
   <div class="content">
     <h2 class="title">{data.title}</h2>
@@ -19,7 +33,7 @@ const { data, id } = Astro.props.project;
     <div class="metadata">
       <time datetime={data.publishDate.toISOString()}>{formatDate(data.publishDate)}</time>
       <span class="separator">·</span>
-      <span class="read-time">5 min read</span>
+      <span class="read-time">{readingTime} min read</span>
     </div>
     <div class="tags">
       {data.tags.map((tag) => <span class="tag">{tag}</span>)}
@@ -42,8 +56,8 @@ const { data, id } = Astro.props.project;
   }
 
   .image {
-    width: 120px;
-    height: 80px;
+    width: 240px;
+    height: 160px;
     overflow: hidden;
     flex-shrink: 0;
   }
