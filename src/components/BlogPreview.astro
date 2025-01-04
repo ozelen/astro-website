@@ -18,7 +18,7 @@ const readingTime = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
 // Use different image handling for dev and prod
 const isProd = import.meta.env.PROD;
 const imageUrl = isProd 
-  ? `https://zelenyuk.com/cdn-cgi/image/width=240,height=160,fit=cover,quality=80,format=webp${new URL(data.img.src, Astro.url).pathname}`
+  ? `https://zelenyuk.com/cdn-cgi/image/width=240,height=160,fit=cover,quality=80,format=webp/_astro/${data.img.src.split('/').pop()}`
   : data.img;
 ---
 
