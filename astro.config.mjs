@@ -9,7 +9,7 @@ export default defineConfig({
   adapter: cloudflare(),
   image: {
     service: {
-      entrypoint: 'astro/assets/services/sharp',
+      entrypoint: '@astrojs/cloudflare/image-service',
     },
     domains: ['zelenyuk.com'],
     remotePatterns: [{ protocol: "https" }],

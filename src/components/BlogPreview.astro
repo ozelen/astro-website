@@ -18,16 +18,17 @@ const readingTime = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
 
 <a class="post-preview" href={`/blog/${id}`}>
   <div class="image">
-    <Image 
-      src={data.img} 
-      alt={data.img_alt || ''} 
-      width={240}
-      height={160}
-      quality={80}
-      format="webp"
-      densities={[1, 2]}
-      loading="lazy"
-    />
+    {data.img && (
+      <Image 
+        src={data.img} 
+        alt={data.img_alt || ''} 
+        width={240}
+        height={160}
+        quality={80}
+        format="webp"
+        loading="lazy"
+      />
+    )}
   </div>
   <div class="content">
     <h2 class="title">{data.title}</h2>
