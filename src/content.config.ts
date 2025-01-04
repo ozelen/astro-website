@@ -15,7 +15,7 @@ export const collections = {
     }),
   }),
   blog: defineCollection({
-    loader: glob({ base: './src/content/blog', pattern: '**/index.md' }),
+    // loader: glob({ base: './src/content/blog', pattern: '**/index.md' }),
     schema: ({ image }) => z.object({
       title: z.string(),
       description: z.string(),
