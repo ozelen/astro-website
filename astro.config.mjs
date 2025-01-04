@@ -5,12 +5,13 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  output: process.env.NODE_ENV === 'production' ? 'server' : 'static',
-  adapter: process.env.NODE_ENV === 'production' ? cloudflare() : undefined,
-  // assets: true,
+  output: 'server',
+  adapter: cloudflare(),
   image: {
     service: {
-      entrypoint: 'astro/assets/services/sharp'
-    }
-  }
+      entrypoint: 'astro/assets/services/sharp',
+    },
+    domains: ['zelenyuk.com'],
+    remotePatterns: [{ protocol: "https" }],
+  },
 });
