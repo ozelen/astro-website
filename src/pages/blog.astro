@@ -1,39 +1,70 @@
 ---
 import { getCollection } from 'astro:content';
-
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-import ContactCTA from '../components/ContactCTA.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
+import BlogPreview from '../components/BlogPreview.astro';
 import Hero from '../components/Hero.astro';
-import Grid from '../components/Grid.astro';
 
-const projects = (await getCollection('blog')).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
 <BaseLayout
-  title="Blog |Oleksiy Zelenyuk"
-  description="Learn aboutOleksiy Zelenyuk's most recent projects"
+  title="Blog | Oleksiy Zelenyuk"
+  description="My blog posts"
+  background="bg-blog"
 >
-  <div class="stack gap-20">
-    <main class="wrapper stack gap-8">
-      <Hero
-        title="Blog"
-        tagline="See my most recent projects below to get an idea of my past experience."
-        align="start"
-      />
-      <Grid variant="offset">
-        {
-          projects.map((project) => (
-            <li>
-              <PortfolioPreview project={project} />
-            </li>
-          ))
-        }
-      </Grid>
+  <div class="stack">
+    <main>
+      <div class="wrapper">
+        <Hero
+          title="Blog"
+          tagline="Here I write about my experiences and learnings."
+          align="start"
+        />
+      </div>
+      
+      <div class="content">
+        <div class="wrapper">
+          <section class="posts">
+            {posts.map((post) => (
+              <BlogPreview project={post} />
+            ))}
+          </section>
+        </div>
+      </div>
     </main>
-    <ContactCTA />
+    <footer>
+      <div class="wrapper">
+        <p>© {new Date().getFullYear()} Oleksiy Zelenyuk</p>
+      </div>
+    </footer>
   </div>
 </BaseLayout>
+
+<style>
+  .stack {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .content {
+    margin-top: 2rem;
+    min-height: calc(100vh - 20rem);
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    padding: 2rem 0;
+    color: var(--gray-400);
+    font-size: var(--text-sm);
+  }
+
+  footer p {
+    margin: 0;
+  }
+</style>

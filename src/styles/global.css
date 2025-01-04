@@ -384,3 +384,55 @@ h1, h2, h3, h4, h5 {
 .section-header {
     color: var(--gray-300);
 }
+
+/* Page-specific backgrounds */
+.backgrounds.bg-home {
+    --bg-image-main: url('/assets/backgrounds/bg-home-dark-800w.jpg') !important;
+}
+
+.backgrounds.bg-about {
+    --bg-image-main: url('/assets/backgrounds/bg-about-dark-800w.jpg') !important;
+}
+
+.backgrounds.bg-projects {
+    --bg-image-main: url('/assets/backgrounds/bg-projects-dark-800w.jpg') !important;
+}
+
+.backgrounds.bg-blog {
+    --bg-image-main: url('/assets/backgrounds/bg-blog-dark-800w.jpg') !important;
+}
+
+/* Base background styles */
+.backgrounds {
+    min-height: 100%;
+    isolation: isolate;
+    background:
+        /*noise*/ url('/assets/backgrounds/noise.png') top center/220px repeat,
+        /*footer*/ var(--bg-image-footer) bottom center/var(--bg-gradient-size) no-repeat,
+        /*main*/ var(--bg-image-main) top center/var(--bg-gradient-size) no-repeat,
+        /*base*/ var(--gray-999);
+    background-blend-mode: 
+        /*noise*/ overlay,
+        /*footer*/ var(--bg-blend-mode),
+        /*main*/ normal,
+        /*base*/ normal;
+}
+
+/* Desktop overrides (1440w) */
+@media (min-width: 50em) {
+    .backgrounds.bg-home {
+        --bg-image-main: url('/assets/backgrounds/bg-home-dark-1440w.jpg') !important;
+    }
+
+    .backgrounds.bg-about {
+        --bg-image-main: url('/assets/backgrounds/bg-about-dark-1440w.jpg') !important;
+    }
+
+    .backgrounds.bg-projects {
+        --bg-image-main: url('/assets/backgrounds/bg-projects-dark-1440w.jpg') !important;
+    }
+
+    .backgrounds.bg-blog {
+        --bg-image-main: url('/assets/backgrounds/bg-blog-dark-1440w.jpg') !important;
+    }
+}

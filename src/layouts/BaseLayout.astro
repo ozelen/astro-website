@@ -3,6 +3,7 @@
 // https://docs.astro.build/en/core-concepts/layouts/
 
 // Component Imports
+import '../styles/global.css';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -10,26 +11,25 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description: string;
-  forceDarkMode?: boolean;
   background?: string;
 }
 
-const { title, description, forceDarkMode, background } = Astro.props;
+const { title, description, background } = Astro.props;
 ---
-<!-- <html lang="en" class={`${forceDarkMode ? 'theme-dark' : ''}`}></html> -->
+
 <html lang="en" class="theme-dark">
   <head>
     <MainHead title={title} description={description} />
   </head>
   <body>
-    <div class="stack backgrounds">
+    <div class={`stack backgrounds ${background || ''}`}>
       <Nav />
       <slot />
       <Footer />
     </div>
 
     <script>
-      // Add “loaded” class once the document has completely loaded.
+      // Add "loaded" class once the document has completely loaded.
       addEventListener('load', () => document.documentElement.classList.add('loaded'));
     </script>
 
