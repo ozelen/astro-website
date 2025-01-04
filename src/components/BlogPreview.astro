@@ -14,33 +14,17 @@ const WORDS_PER_MINUTE = 225;
 const content = await Astro.props.project.body;
 const wordCount = content.split(/\s+/).length;
 const readingTime = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
-
-// Use different image handling for dev and prod
-const isProd = import.meta.env.PROD;
-const imageUrl = isProd 
-  ? `/cdn-cgi/image/width=240,height=160,fit=cover,quality=80,format=webp/_astro/cover2.CK2sPLYk_Z49nUM.webp`
-  : data.img;
 ---
 
 <a class="post-preview" href={`/blog/${id.split('/')[0]}`}>
   <div class="image">
-    {isProd ? (
-      <img 
-        src={imageUrl}
-        alt={data.img_alt || ''} 
-        width="240"
-        height="160"
-        loading="lazy"
-        decoding="async"
-      />
-    ) : (
-      <Image 
-        src={imageUrl}
-        alt={data.img_alt || ''} 
-        width={240}
-        height={160}
-      />
-    )}
+    <Image 
+      src={data.img} 
+      alt={data.img_alt || ''} 
+      width={240}
+      height={160}
+      format="webp"
+    />
   </div>
   <div class="content">
     <h2 class="title">{data.title}</h2>
