@@ -7,9 +7,8 @@ import type { iconPaths } from './IconPaths';
 const textLinks: { label: string; href: string }[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about/' },
-  { label: 'Experience', href: '/work/' },
-  { label: 'Projects', href: '/projects/' },
-  { label: 'Blog', href: '/work/' },
+  // { label: 'Work', href: '/work/' },
+  // { label: 'Blog', href: '/blog/' },
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
@@ -94,9 +93,10 @@ const isCurrentPage = (href: string) => {
         }
       </div>
 
-      <div class="theme-toggle">
+      <!-- Commenting out the theme switcher for now -->
+      <!-- <div class="theme-toggle">
         <ThemeToggle />
-      </div>
+      </div> -->
     </div>
   </div>
 </nav>
