@@ -1,7 +1,7 @@
 ---
 title: My first blog post
 publishDate: 2025-01-04 00:00:00
-img: "./cover.jpg"
+img: "./cover2.jpg"
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
   Throughout my career, I’ve had the opportunity to work with a wide range of technologies across various domains and roles. The journey has been an evolution, from hands-on coding to strategic decision-making in architecture.
