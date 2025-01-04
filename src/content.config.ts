@@ -15,7 +15,9 @@ export const collections = {
     }),
   }),
   blog: defineCollection({
-    loader: glob({ base: './src/content/blog', pattern: '**/*.md', }),
+    type: 'content',
+    // Load Markdown files in the src/content/blog directory
+    loader: glob({ base: './src/content/blog', pattern: '**/index.md' }),
     schema: ({ image }) => z.object({
       title: z.string(),
       description: z.string(),
@@ -24,6 +26,6 @@ export const collections = {
       img: image(),
       img_alt: z.string().optional(),
     }),
-  }), 
+  }),
 };
 
