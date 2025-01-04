@@ -8,7 +8,7 @@ import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
 import Pill from '../../components/Pill.astro';
 import { render } from 'astro:content';
-
+import { Image } from 'astro:assets';
 interface Props {
   entry: CollectionEntry<'blog'>;
 }
@@ -61,7 +61,14 @@ const { Content } = await render(entry);
         <article class="content">
           {entry.data.img && (
             <div class="featured-image">
-              <img src={entry.data.img} alt={entry.data.img_alt || ''} />
+              <Image 
+                src={entry.data.img} 
+                alt={entry.data.img_alt || ''} 
+                width={1200}
+                height={800}
+                quality={80}
+                format="webp"
+              />
             </div>
           )}
           <div class="prose">
