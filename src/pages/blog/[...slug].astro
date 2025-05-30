@@ -54,6 +54,18 @@ const { Content } = await render(entry);
                   {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
                 </div>
               </div>
+              {entry.data.img && (
+                <div class="featured-image">
+                  <Image 
+                    src={entry.data.img} 
+                    alt={entry.data.img_alt || ''} 
+                    width={800}
+                    height={800}
+                    quality={80}
+                    format="webp"
+                  />
+                </div>
+              )}
               <p class="description">{entry.data.description}</p>
             </Hero>
           </div>
@@ -61,18 +73,6 @@ const { Content } = await render(entry);
       </header>
       <main class="wrapper">
         <article class="content">
-          {entry.data.img && (
-            <div class="featured-image">
-              <Image 
-                src={entry.data.img} 
-                alt={entry.data.img_alt || ''} 
-                width={1200}
-                height={800}
-                quality={80}
-                format="webp"
-              />
-            </div>
-          )}
           <div class="prose">
             <Content />
           </div>
@@ -114,13 +114,11 @@ const { Content } = await render(entry);
 
   .featured-image {
     margin: 2rem 0;
-    border-radius: 1rem;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
   }
 
   .featured-image img {
-    width: 100%;
+    width: 50%;
     height: auto;
     object-fit: cover;
   }
