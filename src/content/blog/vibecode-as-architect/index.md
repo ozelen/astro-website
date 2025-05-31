@@ -1,5 +1,5 @@
 ---
-title: Vibecode as an architect, don't architect by vibecode
+title: Vibecode as an architect, don't vibe architect
 publishDate: 2025-30-05 00:00:00
 img: "./image.png"
 img_alt: Vibecode and Vibedebug.

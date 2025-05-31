@@ -124,7 +124,7 @@ const { Content } = await render(entry);
   }
 
   .prose {
-    max-width: 65ch;
+    /* max-width: 65ch; */
     margin: 0 auto;
     color: var(--gray-200);
     line-height: 1.8;
@@ -144,6 +144,7 @@ const { Content } = await render(entry);
 
   .prose :global(p) {
     margin-bottom: 1.5rem;
+    font-size: var(--text-xl);
   }
 
   .prose :global(img) {
